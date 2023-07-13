@@ -1,0 +1,53 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<header class="row bg-black">
+
+    <div class="col-md-4">
+        <img src="{% static 'portfolio/Fede-color.jpeg' %}" alt="" />
+    </div>
+
+    <div class="col-md-8 my-auto">
+        <h1> I am <strong>Federico Miranda</strong></h1>
+        <h3> I am a Python FullStack Developer</h3>
+        <p style="text-align:justify;">Soy un desarrollador fullstack con experiencia en Python, Django y MySQL. Mi dominio de estas tecnologías me permite crear aplicaciones web completas y funcionales. Tengo un amplio conocimiento de Python y su elegante sintaxis, lo que me permite escribir código limpio y eficiente. Con Django, puedo desarrollar rápidamente características y funcionalidades avanzadas para aplicaciones web dinámicas y seguras. Además, mi experiencia en MySQL me permite diseñar y gestionar bases de datos eficientes y seguras.
+           Como desarrollador fullstack, asumo la responsabilidad completa del ciclo de vida de desarrollo de aplicaciones, desde el diseño hasta las pruebas y el despliegue. Estoy comprometido con la entrega de proyectos de alta calidad y me mantengo actualizado con las últimas tendencias y tecnologías. Mi objetivo es crear soluciones innovadoras que impulsen el éxito de los proyectos en los que participo. Trabajo en equipo y estoy dispuesto a enfrentar nuevos desafíos para seguir creciendo y perfeccionando mis habilidades. Estoy emocionado de aplicar mis conocimientos y experiencia para contribuir al desarrollo de aplicaciones web de alto rendimiento y escalabilidad.
+            
+        </p>
+        <a href="{% static 'portfolio/CV Miranda Aldo Federico.pdf' %}" class="btn btn-primary btn-lg rounded-1 my-3">Download CV</a>
+
+
+    </div>
+
+</header>
+
+<div class="row my-4 text-center">
+
+    <h3>My Projects</h3>
+
+{% for projects in projects %}
+
+<div class="col-md-4 p-4">
+     <div class="card bg-black card-project">
+          <img src="{{projects.image.url}}" alt="{{projects.title}}" class="card-img-top" />
+          <div class="card body">
+    
+    <h2>{{projects.title}}</h2> <p>{{projects.description}}</p>
+    
+    {% if projects.url %}
+    <a href="{{projects.url}}" class="btn btn-light rounded-1 btn-sm" target="_blank">{{projects.url}}</a>
+    
+    {% endif %}
+        </div>
+    </div>
+</div>
+    
+    {% endfor %}
+    
+    {% endblock %}
+
+</div>
+
